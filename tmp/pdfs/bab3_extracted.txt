@@ -1,0 +1,1020 @@
+PAGES=35
+
+--- PAGE 1 ---
+BAB 3  
+METODE PENELITIAN 
+ 
+3.1  Jenis Dan Pendekatan Penelitian 
+Penelitian ini men ggunakan penelitian terapan (applied research) dengan pendekatan 
+kuantitatif berbasis data mining. Penelitian terapan dipilih karena bertujuan untuk menerapkan 
+metode dan algoritma tertentu guna menyelesaikan permasalahan nyata yang terjadi di lapangan, 
+khususnya dalam pengelolaan dan pemeliharaan kendaraan operasional di UD Sentosa. 
+Pendekatan kuantitatif digunakan karena penelitian ini mengolah data historis kendaraan 
+operasional yang bersifat numerik dan kategorikal, seperti data penggunaan kendaraan dan  data 
+pemeliharaan kendaraan. Data tersebut dianalisis menggunakan metode data mining untuk 
+menemukan pola dan informasi yang dapat mendukung pengambilan keputusan peme liharaan 
+kendaraan operasional. 
+Dalam penelitian ini diterapkan algoritma Naïve Bayes da n Decision Tree untuk melakukan 
+klasifikasi kondisi pemeliharaan kendaraan operasional berdasarkan data historis yang tersedia. 
+Hasil klasifikasi digunakan untuk menentukan kondisi pemeliharaan kendaraan secara le bih 
+objektif dan berbasis data. 
+ 
+3.2  Objek dan Subjek Penelitian 
+Objek dan subjek penelitian dalam penelitian ini adalah pengelolaan kendaraan 
+operasional di UD Sentosa, khususnya pada pemanfaatan data historis kendaraan operasional 
+untuk mendukung analisis dan pengambilan keputusan pemeliharaan kenda raan. Data yang 
+digunakan meliputi data kendaraan, data penggunaan kendaraan, serta data pemeliharaan 
+kendaraan operasional yang tersimpan dalam sistem pengelolaan kendaraan UD Sentosa. 
+Penelitian ini berfokus pada proses klasifikasi kondisi pemeliharaan k endaraan 
+operasional menggunakan algoritma Naïve Bayes dan Decision Tree berdasarkan data historis 
+kendaraan. Data tersebut digunakan sebagai bahan analisis untuk mengevaluasi kinerja kedua 
+algoritma dalam mendukung pengambilan keputusan pemeliharaan kendaraan operasional. 
+
+--- PAGE 2 ---
+Selain data historis kendaraan, penelitian ini juga melibatkan pihak pengelola kendaraan 
+operasional di UD Sentosa sebagai sumber informasi pendukung untuk memastikan kelengkapan 
+dan keakuratan data. Namun, keterlibatan subjek manusia tid ak menjadi fokus utama penelitian, 
+karena penelitian ini menggunakan pendekatan kuantitatif yang menitikberatkan pada 
+pengolahan dan analisis data historis kendaraan operasional. 
+ 
+3.2.1  Teknik Pengumpulan Data 
+Teknik pengumpulan data dalam penelitian ini dilaku kan untuk memperoleh data yang 
+diperlukan dalam proses analisis dan klasifikasi kondisi pemeliharaan kendaraan operasional. 
+Data yang dikumpulkan bersifat kuantitatif dan digunakan sebagai bahan utama dalam penerapan 
+algoritma Naïve Bayes dan Decision Tree . Adapun teknik pengumpulan data yang digunakan 
+dalam penelitian ini adalah sebagai berikut: 
+1. Studi Dokumentasi 
+Studi dokumentasi dilakukan dengan mengumpulkan data historis kendaraan 
+operasional yang dimiliki oleh UD Sentosa. Data yang dikumpulkan meliputi  data 
+kendaraan, data penggunaan kendaraan, serta data pemeliharaan dan perbaikan 
+kendaraan operasional  serta data sparepart dan riwayat penggantian sparepart 
+kendaraan. Data dokumentasi ini digunakan sebagai dataset utama dalam proses 
+analisis data mining dan klasifikasi kondisi pemeliharaan kendaraan. 
+2. Observasi Sistem Berjalan 
+Observasi dilakukan untuk memahami alur pengelolaan kendaraan operasional 
+yang sedang berjalan di UD Sentosa, khususnya dalam proses pencatatan 
+penggunaan dan pemeliharaan kendaraan . Hasil observasi digunakan untuk 
+memastikan kesesuaian data yang tersedia dengan kebutuhan analisis penelitian 
+serta sebagai dasar dalam perancangan sistem pendukung. 
+3. Studi Pustaka 
+Studi pustaka dilakukan dengan mempelajari jurnal ilmiah, skripsi, dan lit eratur 
+lain yang relevan dengan topik penelitian, khususnya yang membahas 
+pengelolaan kendaraan operasional, data mining, serta penerapan algoritma Naïve 
+
+--- PAGE 3 ---
+Bayes dan Decision Tree. Studi pustaka digunakan sebagai dasar teoritis dan 
+pembanding dalam penyusunan metodologi penelitian. 
+ 
+3.2.2  Metode Naïve Bayes 
+Metode Naïve Bayes merupakan salah satu algoritma klasifikasi yang didasarkan pada teori 
+probabilitas Bayes dengan asumsi bahwa setiap atribut bersifat independen terhadap atribut 
+lainnya. Metode ini digunakan untuk menentukan kelas suatu data berdasarkan nilai probabilitas 
+tertinggi yang dihasilkan dari data latih. 
+𝑷( 𝑪 ∣ 𝑿 ) = 𝑷(𝑿)𝑷( 𝑿 ∣ 𝑪 ) ⋅ 𝑷(𝑪) 
+Dalam penelitian ini, algoritma Naïve Bayes digunakan untuk melakukan klasifikasi kondisi 
+pemeliharaan kendaraan o perasional berdasarkan data historis kendaraan. Atribut yang 
+digunakan meliputi umur kendaraan, jarak tempuh kendaraan, frekuensi servis, serta KM 
+pemakaian sparepart seperti KM oli, KM kampas rem, KM busi, dan KM ban. 
+Nilai KM sparepart diperoleh dari sel isih kilometer kendaraan sejak penggantian sparepart 
+terakhir dan digunakan sebagai parameter untuk menentukan kebutuhan pemeliharaan kendaraan 
+berdasarkan standar buku servis kendaraan. . Proses pengerjaan metode Naïve Bayes dalam 
+penelitian ini dilakukan melalui beberapa tahapan sebagai berikut: 
+1. Menentukan Data dan Atribut 
+Menentukan data yang akan digunakan sebagai data latih dan data uji, serta 
+menetapkan atribut-atribut yang berpengaruh dalam proses klasifikasi. 
+Tabel 3. 1 Contoh Data 
+No Umur 
+(thn) 
+Jarak 
+(km/thn) 
+Servis 
+(kali/thn) KM Oli KM 
+Rem 
+KM 
+Busi KM Ban Kondisi 
+1 5 30000 1 7000 25000 22000 45000 Perlu 
+2 2 15000 4 3000 12000 10000 20000 Layak 
+3 6 35000 1 9000 30000 25000 50000 Perlu 
+4 3 20000 3 4000 15000 12000 25000 Layak 
+5 4 28000 2 6000 22000 18000 38000 Perlu 
+ 
+
+--- PAGE 4 ---
+2. Menghitung Probabilitas Awal (Prior Probability) 
+Probabilitas awal dihitung berdasarkan jumlah data kendaraan dengan kondisi 
+“Layak” dan “Perlu” pada data historis kendaraan operasional yang 
+mempertimbangkan atribut kendaraan dan KM pemakaian sparepart  dengan 
+membandingkan jumlah data pada setiap kelas terhadap total data latih 
+menggunakan rumus berikut: 
+ 
+3. Menghitung Probabilitas Kondisional 
+Menghitung probabilitas setiap atribut kendaraan terhadap masing -masing kelas 
+berdasarkan data latih. Atribut yang digunakan meliputi umur kendaraan, jarak 
+tempuh kendaraan, frekuensi servis, KM oli, KM kampas rem, KM busi, dan KM 
+ban. 
+4. Melakukan Proses Klasifikasi 
+Proses klasifikasi dilakukan dengan mengalikan probabilitas awal dan probabilitas 
+kondisional dari setiap atribut kendaraan dan KM pemakaian sparepart untuk 
+menentukan kelas kondisi kendaraan dengan probabilitas terbesar. 
+𝑃(𝐾𝑀_𝑂𝑙𝑖 >  5000 | 𝐾𝑒𝑙𝑎𝑠 =  𝑃𝑒𝑟𝑙𝑢 ) 
+5. Menentukan Hasil Klasifikasi 
+Kelas dengan nilai probabilitas terbesar dipilih sebagai hasil klasifikasi kondisi 
+kendaraan operasional, apakah kendaraan masih layak digunakan atau perlu 
+dilakukan pemeliharaan berdasarkan data historis kendaraan dan KM pemakaian 
+sparepart. 
+6. Menyimpan Hasil Klasifikasi 
+Hasil klasifikasi disimpan ke dalam sistem informasi sebagai data pendukung 
+pengambilan keputusan pemeliharaan kendaraan operasional berbasis KM 
+penggunaan sparepart. 
+ 
+
+
+--- PAGE 5 ---
+3.2.3  Metode Evaluasi 
+Evaluasi dilakukan untuk mengetahui kinerja dari algoritma Naïve Bayes dan Decision Tree 
+dalam melakukan klasifikasi kondisi pemeliharaan kendaraan operasional. Metode evaluasi yang 
+digunakan berdasarkan confusion matrix dengan mengh itung nilai akurasi, precision, recall, dan 
+F1-Score. 
+         =     
+(𝑷                 )
+(𝑷                 ) 
+Confusion matrix digunakan untuk membandingkan hasil klasifikasi yang dihasilkan oleh 
+sistem dengan data a ktual, sehingga dapat diketahui tingkat ketepatan mod el dalam melakukan 
+klasifikasi. 
+Adapun langkah-langkah evaluasi yang dilakukan adalah sebagai berikut: 
+1. Membandingkan hasil klasifikasi dengan data sebenarnya (data aktual). 
+2. Menyusun confusion matrix untuk masing-masing algoritma. 
+3. Menghitung nilai akurasi, precision, recall, dan F1 -Score berdasarkan confusion 
+matrix. 
+4. Menganalisis hasil evaluasi dari masing-masing algoritma 
+5. Membandingkan hasil evaluasi antara algoritma Naïve Bayes dan Decision Tree. 
+6. Menentukan algoritma dengan performa terbaik berdasarkan hasil evaluasi. 
+3.2.4  Metode Decision Tree 
+Algoritma Decision Tree digunakan untuk membentuk pohon keputusan berdasarkan atribut 
+kendaraan dan KM pemakaian sparepart kendaraan operasional. Pohon keputusan diguna kan 
+untuk menentukan kondisi kendaraan berdasarkan atribut yang paling berpengaruh terhadap 
+kebutuhan pemeliharaan. 
+Dalam penelitian ini, algoritma Decision Tree digunakan sebagai metode pembanding 
+terhadap algoritma Naïve Bayes. Proses pembentukan pohon k eputusan dilakukan berdasarkan 
+atribut yang memiliki nilai informasi tertinggi, sehingga dihasilkan model klasifikasi yang dapat 
+digunakan untuk memprediksi kelas data uji. Tahapan pengerjaan algoritma Decision Tree dalam 
+penelitian ini dilakukan sebagai berikut: 
+
+--- PAGE 6 ---
+1. Menentukan Data dan Atribut 
+Menentukan data latih beserta atribut yang akan digunakan da lam pembentukan 
+pohon keputusan. Atribut yang digunakan dalam pembentukan pohon keputusan 
+meliputi umur kendaraan, jarak tempuh, frekuensi servis, KM oli, KM re m, KM 
+busi, dan KM ban. 
+2. Menghitung Nilai Entropy 
+Menghitung nilai entropy pada setiap atribut untuk mengeta hui tingkat 
+ketidakpastian data n ilai entropy dihitung berdasarkan distribusi data kendaraan 
+yang memiliki kondisi “Layak” dan “Perlu” dengan mempert imbangkan atribut 
+KM sparepart. 
+ 
+3. Menghitung Information Gain 
+Menghitung information gain untuk setiap atribut guna menentukan atribut terbaik 
+sebagai akar (root) pohon keputusan. Atribut dengan nilai information gain 
+tertinggi akan dipilih sebagai akar po hon keputusan. Sebagai contoh, atribut KM 
+Ban atau KM Oli dapat menjadi atribut utama apabila paling berpengaruh 
+terhadap kondisi kendaraan. 
+ 
+4. Membangun Struktur Pohon Keputusan 
+Menyusun pohon keputusan dengan memilih atribut yang memiliki nilai 
+information gain tertinggi pada setiap percabangan. 
+Jika KM Ban < 40000 
+dan Servis > 2 kali/tahun 
+Maka Kondisi = Layak 
+5. Melakukan Klasifikasi Data Uji 
+Data kendaraan diklasifikasikan berdasarkan aturan keputusan yang terbentuk dari 
+atribut kendaraan dan KM pemakaian sparepart. 
+6. Menyimpan Hasil Klasifikasi 
+
+
+--- PAGE 7 ---
+Hasil klasifikasi digunakan sebagai pendukung pengambilan keputusan 
+pemeliharaan kendaraan operasional berbasis data historis dan KM penggunaan 
+sparepart. 
+ 
+3.2.5  Klasifikasi Analisis Kebutuhan  
+Analisis kebutuhan merupakan tahap penting  yang bertujuan untuk mengidentifikasi 
+kebutuhan sistem berdasarkan permasalahan dan kondisi sistem yang sedang berjalan. 
+Klasifikasi analisis kebutuhan dilakukan untuk mempermudah proses perancangan dan 
+pembangunan sistem informasi pengelol aan kendaraan operasional agar sesuai dengan 
+kebutuhan pengguna. Kebutuhan sistem dalam penelitian ini diklasifikasikan menjadi 
+kebutuhan fungsional dan kebutuhan nonfungsional. 
+ 
+3.2.6  Kebutuhan Fungsional 
+Tabel 3. 2 Kebutuhan Fungsional 
+KODE KEBUTUHAN FUNGSIONAL AKTOR PRIORITAS 
+SKPL-KF-01 Sistem dapat melakukan proses 
+login dan logout pengguna 
+sesuai dengan hak akses 
+Admin, 
+Pengguna 
+Operasional 
+1 
+SKPL-KF-02 Sistem dapat menampilkan 
+dashboard informasi kendaraan 
+operasional 
+Admin 1 
+SKPL-KF-03 Sistem dapat mengelola data 
+kendaraan operasional (tambah, 
+ubah, hapus, lihat) 
+Admin 1 
+SKPL-KF-04 Sistem dapat mengelola data 
+pengguna sistem 
+Admin 2 
+SKPL-KF-05 Sistem dapat mencatat dan 
+mengelola data peminjaman 
+kendaraan operasional 
+Admin, 
+Pengguna 
+Operasional 
+1 
+
+--- PAGE 8 ---
+SKPL-KF-06 Sistem dapat mencatat jadwal 
+penggunaan kendaraan 
+operasional 
+Admin 2 
+SKPL-KF-07 Sistem dapat mencatat dan 
+mengelola data pemeliharaan 
+kendaraan operasional 
+Admin 1 
+SKPL-KF-08 Sistem dapat menampilkan 
+riwayat pemeliharaan 
+kendaraan operasional 
+Admin 2 
+SKPL-KF-09 Sistem dapat melakukan 
+monitoring penggunaan 
+kendaraan operasional 
+Admin 1 
+SKPL-KF-10 Sistem dapat menghasilkan 
+laporan kendaraan operasional 
+(penggunaan dan pemeliharaan) 
+Admin 1 
+SKPL-KF-11 Sistem dapat mencetak atau 
+mengunduh laporan kendaraan 
+operasional 
+Admin 2 
+ 
+3.2.7  Kebutuhan Non Fungsional 
+KODE KEBUTUHAN NON FUNGSIONAL PRIORITAS 
+SKPL-KNF-01 Sistem harus dapat diakses melalui web 
+browser (Google Chrome, Mozilla 
+Firefox, dan sejenisnya) 
+1 
+SKPL-KNF-02 Sistem harus memiliki mekanisme 
+autentikasi pengguna untuk menjaga 
+keamanan data 
+1 
+SKPL-KNF-03 Sistem harus mampu memberikan respon 
+waktu pemrosesan ≤ 2 detik untuk setiap 
+permintaan pengguna 
+1 
+
+--- PAGE 9 ---
+SKPL-KNF-04 Sistem harus memiliki antarmuka yang 
+mudah digunakan dan dipahami oleh 
+pengguna 
+1 
+SKPL-KNF-05 Sistem harus mampu menyimpan data 
+secara terpusat dan konsisten di dalam 
+basis data 
+1 
+SKPL-KNF-06 Sistem harus dapat berjalan dengan baik 
+pada perangkat komputer atau laptop 
+2 
+SKPL-KNF-07 Sistem harus memiliki tingkat 
+ketersediaan yang baik selama jam 
+operasional 
+2 
+SKPL-KNF-08 Sistem harus mudah dikembangkan dan 
+dipelihara jika terdapat perubahan 
+kebutuhan 
+2 
+SKPL-KNF-09 Sistem harus mampu menangani 
+kesalahan input data oleh pengguna 
+2 
+SKPL-KNF-10 Sistem harus mampu menjaga integritas 
+dan keakuratan data kendaraan 
+operasional 
+1 
+ 
+3.2.8  Bahan dan Alat Penelitian 
+Penelitian ini menggunakan berbagai komponen perangkat keras dan perangkat lunak 
+yang dirancang untuk sistem kendaraan tersebut. Rincian bahan dan perangkat yang digunakan 
+adalah sebagai berikut:  
+Perangkat Keras : 
+Tabel 3. 3 Perangkat Keras 
+No. Perangkat Keras Fungsi Utama 
+1 Laptop / Komputer Prosesor Intel Core i5  
+
+--- PAGE 10 ---
+2 Memori (RAM) Minimal 8 GB 
+3 Media Penyimpanan SSD/HDD  256 GB 
+4 Perangkat Jaringan Koneksi internet untuk integrasi sistem 
+ 
+Perangkat Lunak:  
+Tabel 3. 4 Perangkat Lunak 
+ 
+No. Perangkat Lunak Fungsi Utama 
+1 Sistem Operasi Menjalankan seluruh aplikasi pengembangan 
+2 
+Web Browser 
+(Chrome/Firefox) 
+Mengakses dan menguji sistem berbasis web 
+3 Framework Laravel Pengembangan website dan backend sistem 
+4 Database MySQL 
+Penyimpanan data kendaraan, peminjaman, pemeliharaan, 
+dan pengguna  
+5 Code Editor (VS Code) Penulisan dan pengelolaan kode program 
+6 Web Server (Apache) Menjalankan aplikasi web secara lokal 
+ 
+Penjelasan Detail Komponen: 
+1. Laptop atau Komputer: Laptop atau komputer digunakan sebagai perangkat utama dalam 
+proses pengolahan data, pengembangan sistem informasi berbasis web, serta pengujian 
+sistem pengelolaan kendaraan operasional. Perangkat ini digunakan untuk menjalankan 
+aplikasi pengembangan, mengelola database kendaraan, serta melakukan proses analisis 
+data mining menggunakan algoritma Naïve Bayes dan Decision Tree. Spesifikasi 
+minimal ditetapkan agar proses pengolahan data dan pengembangan sistem dapat berjalan 
+secara optimal. 
+
+--- PAGE 11 ---
+2. Prosesor: Prosesor berfungsi sebagai pusat pemrosesan data. Prosesor dengan spesifikasi  
+Intel Core i5 atau setara  digunakan untuk mendukung proses komputasi dalam 
+pengolahan data historis kendaraan operasional, proses klasifikasi menggunakan 
+algoritma Naïve Bayes dan Decision Tree, serta menjalankan sistem informasi berbasis 
+web secara bersamaan. 
+3. Memori (RAM): Memori atau RAM berfungsi sebagai penyimpanan data semen tara saat 
+sistem berjalan. Kapasitas RAM 8 GB  diperlukan agar proses pengembangan sistem, 
+pengelolaan database, serta pengujian sistem informasi kendaraan operasional dapat 
+berjalan dengan lancar tanpa mengalami penurunan kinerja. 
+4. Media Penyimpanan: Media penyimpanan berupa SSD atau HDD  digunakan untuk 
+menyimpan sistem operasi, source code aplikasi, database kendaraan operasional, serta 
+data historis kendaraan yang digunakan sebagai dataset penelitian. Kapasitas 
+penyimpanan 256 GB digunakan untuk menjamin k etersediaan ruang penyimpanan yang 
+cukup serta mendukung kecepatan akses data. 
+5. Perangkat Jaringan: Perangkat jaringan dan koneksi internet digunakan untuk mendukung 
+proses pengembangan dan pengujian sistem berbasis web, termasuk akses database, 
+pengujian s istem secara online, serta pengunduhan referensi dan library pendukung. 
+Koneksi internet juga diperlukan untuk memastikan sistem dapat diakses melalui browser 
+sesuai dengan kebutuhan pengguna. 
+Perangkat Lunak :  
+1. Sistem Operasi : Sistem operasi digunakan seb agai platform dasar untuk menjalankan 
+seluruh perangkat lunak pendukung penelitian. Sistem operasi memungkinkan aplikasi 
+pengembangan, web server, database, serta tools pengolahan data mining dapat berjalan 
+secara terintegrasi dan stabil. 
+2. Web Browser: Web browser digunakan untuk mengakses dan menguji sistem informasi 
+pengelolaan kendaraan operasional berbasis web. Browser seperti Google Chrome  atau 
+Mozilla Firefox digunakan untuk menampilkan antarmuka sistem, menguji fungsi sistem, 
+serta memastikan sistem berjalan sesuai dengan kebutuhan pengguna. 
+3. Framework Laravel: Laravel digunakan sebagai framework utama dalam pengembangan 
+sistem informasi berbasis web. Laravel menerapkan konsep Model-View-Controller 
+
+--- PAGE 12 ---
+(MVC) yang memudahkan pengelolaan kode program, meningk atkan keamanan aplikasi, 
+serta mempercepat proses pengembangan sistem pengelolaan kendaraan operasional. 
+4. Database MySQL : MySQL digunakan sebagai sistem manajemen basis data untuk 
+menyimpan dan mengelola data yan g berkaitan dengan data kendaraan  dan permint aan 
+pergantian jadwal. Database ini mendukung penyimpanan data secara terstruktur dan 
+terintegrasi dengan website berbasis Laravel. 
+5. Code Editor: Code editor seperti Visual Studio Code digunakan untuk menulis, mengedit, 
+dan mengelola source code aplikasi. C ode editor ini mendukung berbagai fitur seperti 
+syntax highlighting dan debugging yang memudahkan proses pengembangan sistem. 
+6. Web Server : Web server seperti Apache digunakan untuk menjalankan aplikasi web 
+secara lokal maupun server. Web server berperan dal am menangani permintaan dari 
+browser pengguna dan menghubungkannya dengan aplikasi backend yang dikembangkan 
+menggunakan Laravel. 
+ 
+ 
+3.2.9  Tahapan Penelitian 
+ 
+Gambar 3. 1 Tahapan Penelitian 
+
+
+--- PAGE 13 ---
+Tahapan penelitian merupakan langkah -langkah ilmiah yang dilakukan secara sistematis 
+untuk mencapai tujuan penelitian. Tahapan penelitian ini disusun agar proses penelitian berjalan 
+secara terarah dan terstruktur. Penelitian ini menggunakan pendekatan kuantitatif berbasis data 
+mining, dengan penera pan algoritma Naïve Bayes dan Decision Tree sebagai metode analis is 
+data. Adapun tahapan penelitian yang dilakukan adalah sebagai berikut: 
+1. Identifikasi Masalah 
+Tahap ini merupakan tahap awal penelitian yang bertujuan untuk mengidentifikasi 
+permasalahan yan g terjadi pada pengelolaan kendaraan operasional di UD 
+Sentosa. Identifikasi masalah dilakukan melalui observasi awal terhadap proses 
+pendataan kendaraan, penggunaan kendaraan, dan pemeliharaan kendaraan yang 
+masih dilakukan secara manual. 
+2. Pengumpulan Data 
+Pada tahap ini dilakukan pengumpulan data yang diperlukan sebagai bahan 
+penelitian. Data yang dikumpulkan berupa data historis kendaraan operasional 
+yang meliputi data kendaraan, data penggunaan kendaraan, serta data 
+pemeliharaan dan perbaikan kendaraan. Selain itu, dilakukan studi pustaka 
+terhadap jurnal ilmiah, buku, dan penelitian terdahulu yang relevan sebagai dasar 
+teori dan metodologi penelitian. 
+3. Analisis Kebutuhan Sistem 
+Tahap ini bertujuan untuk menganalisis kebutuhan sistem yang akan 
+dikembangkan. Analisis meliputi kebutuhan fungsional dan non -fungsional 
+sistem, kebutuhan data, serta kebutuhan pengguna. Hasil dari tahap ini menjadi 
+dasar dalam menentukan proses pengolahan data dan pen erapan algoritma yang 
+digunakan. 
+4. Pembagian Data Latih dan Data Uji 
+Data yang telah dikumpulkan kemudian dibagi menjadi dua bagian, yaitu data 
+latih (training data) dan data uji (testing data). Data latih digunakan untuk melatih 
+model algoritma, sedangkan data uji digunakan untuk menguji performa model 
+yang telah dibangun. 
+5. Penerapan Algoritma Naïve Bayes 
+
+--- PAGE 14 ---
+Pada tahap ini dilakukan penerapan algoritma Naïve Bayes menggunakan data 
+latih. Algoritma ini digunakan untuk melakukan proses klasifikasi berdasarkan 
+probabilitas dengan asumsi independensi antar atribut. Hasil dari tah ap ini berupa 
+model klasifikasi Naïve Bayes. 
+6. Penerapan Algoritma Decision Tree 
+Selanjutnya, data yang sama juga diproses menggunakan algoritma Decision Tree. 
+Algoritma ini membentuk struktur pohon keputusan berdasarkan atribut -atribut 
+yang paling berpengar uh dalam pengambilan keputusan. Model ini digunakan 
+sebagai pembanding terhadap algoritma Naïve Bayes. 
+7. Evaluasi dan Perbandingan Akurasi 
+Tahap evaluasi dilakukan untuk mengukur kinerja kedua algoritma menggunakan 
+data uji. Pengukuran dilakukan dengan melihat nilai akurasi, precision, recall, dan 
+confusion matrix. Hasil evaluasi digunakan untuk membandingkan performa 
+algoritma Naïve Bayes dan Decision Tree. Jika masih ditemukan kekurangan, 
+maka dilakukan perbaikan model. 
+8. Implementasi Hasil ke Sistem Informasi 
+Model algoritma dengan performa terbaik kemudian diimplementasikan ke dalam 
+sistem informasi. Implementasi ini bertujuan agar hasil penelitian dapat 
+digunakan secara langsung dalam bentuk aplikasi atau sistem pendukung 
+keputusan. 
+9. Pengujian Sistem (Black Box Testing) 
+Setelah sistem diimplementasikan, dilakukan pengujian sistem menggunakan 
+metode black box testing. Pengujian ini berfokus pada fungsionalitas sistem untuk 
+memastikan bahwa setiap fitur berjalan sesuai dengan kebutuhan dan spesifikasi 
+yang telah ditentukan. 
+10. Kesimpulan dan Saran 
+Tahap terakhir adalah penarikan kesimpulan berdasarkan hasil penelitian yang 
+telah dilakukan. Selain itu, diberikan saran untuk pengembangan sistem dan 
+penelitian selanjutnya agar hasil penelitian dapat ditingkatkan di masa mendatang. 
+ 
+
+--- PAGE 15 ---
+3.2.10  Perancangan Sistem 
+Perancangan sistem merupakan tahap lanjutan setelah proses analisis kebutuhan sistem. 
+Tahap ini bertujuan untuk menerjemahkan kebutuhan sistem yang telah diidentifikasi ke dalam 
+bentuk rancangan yang lebih terstruktur dan  teknis sebagai pedoman dalam proses implementasi 
+sistem informasi pengelolaan kendaraan operasional berbasis web. 
+Pada tahap perancangan sistem, dilakukan penyusunan rancangan arsitektur sistem, 
+rancangan basis data, rancangan alur proses sistem, serta ra ncangan antarmuka pengguna. 
+Rancangan tersebut disusun agar sistem yang dikembangkan mampu mengelola data kendaraan 
+operasional, data penggunaan kendaraan, data pemeliharaan kendaraan, serta menampilkan hasil 
+analisis klasifikasi kondisi pemeliharaan kenda raan menggunakan algoritma  Naïve Bayes dan 
+Decision Tree. 
+Perancangan sistem yang baik diharapkan dapat menghasilkan sistem informasi yang 
+mudah digunakan, terstruktur, dan sesuai dengan kebutuhan pengguna. Selain itu, perancangan 
+sistem juga berperan pent ing dalam memastikan bahwa sistem yang dibangun dapat mendukung 
+tujuan penelitian, yaitu membantu pengelolaan kendaraan operasional dan mendukung 
+pengambilan keputusan pemeliharaan kendaraan secara lebih efektif dan berbasis data. 
+ 
+3.2.11  Rancangan Input dan Output (I/O) Sistem 
+Rancangan Input dan Output (I/O) ini dibuat untuk mendefinisikan data apa saja yang 
+masuk ke dalam sistem informasi pengelolaan kendaraan operasional UD Sentosa, serta 
+informasi apa saja yang akan dihasilkan oleh sistem untuk mendukung pen gambilan keputusan 
+pemeliharaan. 
+A. Rancangan Input Sistem  Rancangan input menjelaskan formulir digital yang digunakan 
+oleh aktor untuk memasukkan data ke dalam sistem. 
+1. Form Input Data Kendaraan (Admin):  Digunakan untuk mendaftarkan armada truk 
+Colt Diesel ba ru. Data yang diinput meliputi: Nomor Rangka, Nomor Polisi, Merek, 
+Tahun Pembelian, dan KM Awal Kendaraan. 
+
+--- PAGE 16 ---
+2. Form Pengajuan Peminjaman (Karyawan):  Input meliputi: Nama Peminjam, Pilih 
+Kendaraan, Tanggal Pinjam, Tanggal Kembali, dan Tujuan Distribusi. 
+3. Form Pe meliharaan Kendaraan (Admin):  Input meliputi: Pilih Kendaraan, Tanggal 
+Servis, Jenis Servis, Detail Sparepart yang Diganti, dan Total Biaya Perbaikan. 
+4. Form Input Data Uji Klasifikasi (Admin):  Input meliputi parameter numerik untuk 
+data mining: Umur Kendara an, Jarak Tempuh/Tahun, Frekuensi Servis/Tahun, KM 
+Oli, KM Rem, KM Busi, dan KM Ban. 
+B. Rancangan Output Sistem  Rancangan output menjelaskan informasi atau dokumen yang 
+disajikan oleh sistem kepada pengguna. 
+1. Halaman Dashboard (Semua Aktor):  Menampilkan grafik  statistik peminjaman, 
+jumlah total kendaraan operasional, dan status ketersediaan armada. 
+2. Notifikasi Reminder Servis (Admin):  Sistem menampilkan peringatan otomatis saat 
+kilometer pemakaian sparepart kendaraan (Oli, Rem, Busi, Ban) telah mendekati atau 
+melewati batas standar servis berkala. 
+3. Hasil Klasifikasi Data Mining (Admin/Kepala Bagian):  Output visual berupa hasil 
+prediksi kondisi pemeliharaan dari algoritma Naïve Bayes dan Decision Tree 
+(Contoh: Kategori Perlu Servis atau rekomendasi tindakan seperti Servis 20.000 KM). 
+4. Laporan Operasional (Kepala Bagian):  Dokumen cetak/unduh (PDF) yang berisi 
+Laporan Riwayat Peminjaman Kendaraan, Laporan Rekapitulasi Pemeliharaan, dan 
+Laporan Total Biaya Perawatan Bulanan. 
+3.2.12  Use Case Diagram 
+Use Case diagram merupakan gambaran atau representasi dari interaksi yang terjadi antara 
+sistem dan lingkunganya. 
+
+--- PAGE 17 ---
+ 
+Use case diagram digunakan untuk menggambarkan interaksi antara aktor dengan sistem 
+informasi pengelolaan kendaraan operasional berbasis web. Diagram ini berfungsi un tuk 
+menunjukkan fungsi-fungsi utama yang disediakan oleh sistem serta peran masing -masing aktor 
+dalam menggunakan sistem tersebut. Use case diagram juga membantu dalam memahami 
+kebutuhan sistem secara fungsional dan menjadi acuan dalam proses peranca ngan s erta 
+implementasi sistem. 
+Pada sistem informasi pengelolaan kendaraan operasional ini terdapat tiga aktor utama, 
+yaitu Admin, Pengguna Operasional, dan Kepala Bagian. Setiap aktor memiliki hak akses dan 
+peran yang berbeda sesuai dengan kebutuhan sistem. 
+Admin berperan sebagai pengelola utama sistem. Admin dapat melakukan proses login 
+dan logout, mengelola data kendaraan operasional, mengelola data pengguna sistem, memproses 
+dan menyetujui peminjaman kendaraan, mencatat serta menjadwalkan pemeliharaan kendar aan, 
+melakukan monitoring penggunaan kendaraan, serta menghasilkan dan mengunduh  laporan 
+kendaraan operasional. 
+Pengguna Operasional berperan sebagai pengguna sistem yang memanfaatkan kendaraan 
+operasional. Pengguna operasional dapat melakukan login dan lo gout, mengajukan peminjaman 
+kendaraan, serta melihat status dan riwayat peminjaman kendaraan yang telah dilakukan. 
+Kepala Bagian berperan sebagai pihak yang melakukan pengawasan terhadap 
+penggunaan kendaraan operasional. Kepala bagian dapat melakukan login dan logout, memantau 
+
+
+--- PAGE 18 ---
+proses peminjaman kendaraan, serta melihat laporan kendaraan operasional sebagai bahan 
+evaluasi dan pengambilan keputusan. 
+Use case diagram yang dirancang menggambarkan hubungan antara ketiga aktor tersebut 
+dengan fungsi -fungsi sistem , sehingga dapat memberikan gambaran yang jelas mengenai alur 
+penggunaan sistem informasi pengelolaan kendaraan operasional berbasis web secara 
+keseluruhan. 
+ 
+3.2.13  Activity Diagram 
+Activity diagram digunakan untuk menggambarkan alur aktivitas atau proses kerja sistem 
+secara detail dari awal hingga akhir. Diagram ini menunjukkan urutan aktivitas yang dilakukan 
+oleh aktor dan sistem, termasuk keputusan yang mungkin terjadi selama proses berlangsung. 
+Activity diagram membantu dalam memahami alur operasional sistem informasi pengelolaan 
+kendaraan operasional secara lebih jelas. 
+Pada penelitian ini, activity diagram difokuskan pada proses utama dalam sistem, yaitu 
+login pengguna, peminjaman kendaraan, dan pemeliharaan kendaraan operasional. 
+ 
+a. Activity Diagram Proses Login 
+ 
+Gambar 3. 3 Activity Diagram Proses Login 
+
+--- PAGE 19 ---
+       
+Activity Diagram Login menggambarkan proses autentikasi pengguna sebelum 
+memasuki sistem. Admin memasukkan email dan password kemudian sistem 
+melakukan proses validasi. Apabila data login benar maka sistem akan 
+menampilkan halaman dashboard. Sebaliknya apabila data tidak sesuai maka 
+sistem akan menampilkan pesan kesalahan dan pengguna diminta mengulangi 
+proses login. 
+b. Activity Diagram Kelola Kendaraan 
+ 
+ 
+Activity Diagram Kelola Kendaraan menjelaskan proses pengelolaan data 
+kendaraan. Admin mem ilih menu kendaraan kemudian dapat melakukan proses 
+tambah, ubah, atau hapus data kendaraan. Setelah data disimpan sistem akan 
+memperbarui database dan menampilkan daftar kendaraan terbaru. 
+c. Activity Diagram Kelola Pemegang Kendaraan 
+ 
+Gambar 3. 4 Activity Diagram Proses Peminjaman Kendaraan 
+
+--- PAGE 20 ---
+ 
+                            Gambar 3. 5 Activity Diagram Proses Pemeliharaan Kendaraan 
+Activity d iagram ini menggambarkan proses pengelolaan data pemegang 
+kendaraan. Admin memilih menu pemegang kendaraan kemudian menginput atau 
+mengubah data pemega ng kendaraan. Sistem menyimpan data tersebut dan 
+menampilkan informasi yang telah diperbarui. 
+d. Activity Diagram Kelola Peminjaman 
+
+
+--- PAGE 21 ---
+ 
+                  Gambar 3. 6 Activity Diagram Proses Pembuatan Laporan 
+Activity diagram ini menj elaskan proses pencatatan peminjaman kendaraan. 
+Admin memilih kendaraan yang akan dipinjam kemudian mengisi data 
+peminjaman seperti pemegang kendaraan, tanggal pinjam, tujuan penggunaan, 
+dan kilometer kendaraan. Setelah data disimpan sistem menampilkan daf tar 
+peminjaman. 
+e. Activity Diagram Kelola Pemeliharaan 
+
+
+--- PAGE 22 ---
+ 
+Diagram ini menggambarkan proses pencatatan pemeliharaan kendaraan. Admin 
+memilih kendaraan, mengisi jenis servis, keluhan kendaraan, kilometer 
+kendaraan, dan data pemeliharaan lainnya. Setelah proses penyimpanan selesai 
+sistem akan memperbarui riwayat pemeliharaan kendaraan. 
+f. Activity Diagram Kelola Sparepart 
+
+
+--- PAGE 23 ---
+ 
+Diagram ini menjelaskan proses pengelolaan data sparepart yang digunakan pada 
+pemeliharaan kendaraan. Admin dapat menambah, mengubah, maupun 
+menghapus data sparepart. Sistem kemudian menyimpan perubahan tersebut ke 
+dalam database. 
+g. Activity Diagram Proses Klasifikasi 
+
+
+--- PAGE 24 ---
+ 
+Diagram ini menggambarkan proses klasifikasi kondisi kendaraan. Admin 
+memilih kendaraan yang akan dianalisis. Sistem mengambil data  historis 
+kendaraan, data peminjaman, dan data pemeliharaan kemudian menjalankan 
+proses klasifikasi menggunakan algoritma Naïve Bayes dan Decision Tree. Hasil 
+klasifikasi selanjutnya ditampilkan kepada pengguna sebagai informasi kondisi 
+kendaraan. 
+h. Activity Diagram Cetak Laporan 
+
+
+--- PAGE 25 ---
+ 
+Diagram ini menjelaskan proses pembuatan laporan. Admin memilih jenis laporan 
+dan periode yang diinginkan kemudian sistem menghasilkan laporan yang dapat 
+ditampilkan, dicetak, maupun diunduh sesuai kebutuhan pengguna. 
+ 
+3.2.14  Sequence Diagram 
+Sequence Diagram digunakan untuk menggambarkan alur interaksi antara aktor, sistem, dan 
+basis data secara berurutan berdasarkan waktu (time sequence). Diagram ini menunjukkan 
+bagaimana pesan atau proses dikirim dan diterima antar objek dalam sistem i nformasi 
+pengelolaan kendaraan operasional yang dikembangkan. 
+Pada penelitian ini, Sequence Diagram digunakan untuk memperjelas implementasi proses -
+proses utama dalam sistem, yaitu proses login, pengelolaan data kendaraan, peminjaman 
+kendaraan, dan pemelih araan kendaraan yang terintegrasi dengan algoritma Naïve Bayes dan 
+Decision Tree. 
+a. Sequence Diagram Login Sistem 
+
+
+--- PAGE 26 ---
+ 
+                     Gambar 3. 7 Sequence Diagram Login 
+Sequence Diagram Login Sistem menggambarkan alur proses au tentikasi 
+pengguna sebelum dapat mengakses sistem informasi. Aktor yang terlibat pada 
+proses ini adalah User, sedangkan objek sistem yang terlibat meliputi Login Page, 
+System, dan Database. 
+Alur proses login dimulai ketika user memasukkan username dan pass word 
+melalui halaman login. Selanjutnya, sistem melakukan proses validasi kredensial 
+dengan mencocokkan data yang dimasukkan dengan data pengguna yang 
+tersimpan di dalam database. Apabila data yang dimasukkan sesuai, maka sistem 
+memberikan respon login ber hasil dan user dapat mengakses sistem. Sebaliknya, 
+apabila data tidak sesuai, sistem akan memberikan inf ormasi login gagal kepada 
+user. Sequence Diagram ini menunjukkan bahwa proses autentikasi dilakukan 
+secara terpusat oleh sistem dengan memanfaatkan data base sebagai media 
+penyimpanan data pengguna, sehingga keamanan dan validitas akses sistem dapat 
+terjaga. 
+b. Sequence Diagram Pengelolaan Data Kendaraan 
+
+
+--- PAGE 27 ---
+ 
+                                     Gambar 3. 8 Sequence Diagram Pengelolaan Data Kendaraan 
+Sequence Diagram Pengelolaan Data Kendaraan menggambarkan alur interaksi 
+antara Admin, Vehicle Management System, dan Database dalam proses 
+pengelolaan data kendaraan operasional. 
+Proses dimulai ketika admin memilih aksi pengelolaan data k endaraan, seperti 
+menambah, mengubah, atau menghapus data kendaraan. Admin kemudian 
+menginput data kendaraan sesuai dengan kebutuhan. Sistem akan memproses 
+permintaan tersebut dan menyimpan perubahan data ke dalam database. Setelah 
+proses penyimpanan berha sil, sistem memberikan konfirmasi kepada admin 
+bahwa data ken daraan telah berhasil dikelola. Diagram ini menunjukkan bahwa 
+seluruh proses pengelolaan data kendaraan dilakukan melalui sistem informasi 
+dan tersimpan secara terstruktur di dalam database, sehi ngga memudahkan proses 
+monitoring dan pelaporan kendaraan operasional. 
+c. Sequence Diagram Peminjaman Kendaraan 
+
+
+--- PAGE 28 ---
+ 
+                             Gambar 3. 9 Sequence Diagram Peminjaman Kendaraan 
+Sequence Diagram Peminjaman Kendaraan menggambarkan alur proses 
+peminjaman kendaraan operasional yang dilakukan oleh User atau Admin melalui 
+sistem. Objek yang terlibat dalam proses ini meliputi Booking System, Vehicle 
+Availability, dan Database. Proses peminjaman dimulai ketika user atau admin 
+mengajukan permohonan peminjaman kendaraan. Sistem kemudian melakukan 
+pengecekan ketersediaan kendaraan berdasarkan data yang tersimpan di database. 
+Apabila kendaraan tersedia, sistem akan menyimpan data peminjaman dan 
+memberikan konfirmasi bahwa peminjaman berhasil. Namun, apabila kendaraan 
+tidak tersedia, sistem akan memberikan informasi bahwa kendaraan tidak dapat 
+dipinjam. Sequence Diagram ini menunjukkan bahwa sistem mampu mengelola 
+proses peminjaman kendaraan secara terkontrol dan real-time berdasarkan data 
+ketersediaan kendaraan yang tersimpan di database. 
+d. Sequence Diagram Proses Pemeliharaan Kendaraan 
+
+
+--- PAGE 29 ---
+ 
+                        Gambar 3. 10 Sequence Diagram Proses Pemeliharaan Kendaraan 
+Sequence Diagram Proses Pemeliharaa n Kendaraan menggambarkan alur 
+pencatatan dan analisis data pemeliharaan kendaraan operasional yang dilakukan 
+oleh Admin. Proses ini melibatkan Maintenance System, Database, serta modul 
+klasifikasi menggunakan algoritma Naïve Bayes dan Decision Tree.  Proses 
+dimulai ketika admin menginput data pemeliharaan kendaraan ke dalam sistem. 
+Data tersebut kemudian disimpan ke dalam database sebagai data historis 
+pemeliharaan. Selanjutnya, sistem menjalankan proses klasifikasi menggunakan 
+algoritma Naïve Bayes dan Dec ision Tree untuk menentukan kondisi 
+pemeliharaan kendaraan. Hasil klasifikasi yang dihasilkan berupa kategori kondisi 
+kendaraan, seperti baik, perlu servis, atau perbaikan. Hasil klasifikasi tersebut 
+kemudian ditampilkan kembali kepada admin sebagai informasi pendukung dalam 
+pengambilan keputusan pemeliharaan kendaraan operasional. 
+
+
+--- PAGE 30 ---
+3.2.15  Entity Relationship Diagram (ERD) 
+ 
+ 
+Gambar 3. 11 ERD 
+Entity Relationship Diagram (ERD) merupakan diagram yang digunakan untuk 
+menggambarkan struktur  basis data serta hubungan antar entitas dalam sistem informasi 
+pengelolaan kendaraan operasional berbasis web. ERD dirancang sebagai dasar dalam 
+pembuatan database agar data yang digunakan dalam sistem dapat tersimpan secara terstruktur, 
+terintegrasi, dan meminimalkan terjadinya redundansi data. 
+Pada sistem informasi pengelolaan kendaraan operasional UD Sentosa, ERD terdiri dari 
+beberapa entitas utama, yaitu users, kendaraan, peminjaman, pemeliharaan, sparepart, 
+penggantian_sparepart, klasifikasi, dan lapo ran. Setiap entitas memiliki atribut dan relasi yang 
+saling berhubungan sesuai dengan proses bisnis sistem. 
+Entitas users digunakan untuk menyimpan data pengguna sistem, seperti admin, 
+pengguna operasional, dan kepala bagian. Entitas ini memiliki atribut i d_user, username, 
+password, nama, dan role. Entitas users berelasi dengan entitas peminjaman, karena pengguna 
+dapat melakukan pengajuan peminjaman kendaraan operasional. 
+
+
+--- PAGE 31 ---
+Entitas kendaraan merupakan entitas utama yang menyimpan data kendaraan operasional. 
+Atribut yang terdapat pada entitas ini meliputi id_kendaraan, no_polisi, jenis, merk, tahun, dan 
+status. Entitas kendaraan memiliki hubungan dengan beberapa entitas lain, yaitu peminjaman, 
+pemeliharaan, penggantian_sparepart, klasifikasi, dan laporan. 
+Entitas peminjaman digunakan untuk mencatat data peminjaman kendaraan operasional. 
+Entitas ini memiliki atribut id_peminjaman, id_user, id_kendaraan, tanggal_pinjam, 
+tanggal_kembali, tujuan, dan status. Relasi antara users dan peminjaman adalah satu ke banyak, 
+karena satu pengguna dapat melakukan beberapa peminjaman. Relasi antara kendaraan dan 
+peminjaman juga satu ke banyak, karena satu kendaraan dapat dipinjam beberap a kali pada 
+waktu yang berbeda. 
+Entitas pemeliharaan digunakan untuk mencatat riwayat perawatan atau servis kendaraan. 
+Atribut pada entitas ini meliputi id_pemeliharaan, id_kendaraan, tanggal, jenis, biaya, dan 
+keterangan. Satu kendaraan dapat memiliki banyak data pemeliharaan, sehingga hubungan antara 
+kendaraan dan pemeliharaan adalah satu ke banyak. 
+Entitas sparepart digunakan untuk menyimpan data komponen atau suku cadang 
+kendaraan operasional. Atribut pada entitas ini meliputi id_sparepart, nama_sparepart, 
+jenis_sparepart, umur_pakai, satuan_umur, dan keterangan. Entitas ini berfungsi sebagai da ta 
+master sparepart yang digunakan dalam proses pencatatan riwayat penggantian komponen 
+kendaraan. 
+Entitas penggantian_sparepart digunakan untuk mencatat riwayat penggantian sparepart 
+pada setiap kendaraan operasional. Atribut pada entitas ini meliputi id_ penggantian, 
+id_kendaraan, id_sparepart, tanggal_penggantian, umur_sparepart, kondisi_sparepart, dan 
+keterangan. Relasi antara kendaraan dan penggantian_sparepart adalah satu ke banyak, karena 
+satu kendaraan dapat memiliki banyak riwayat penggantian sparepart. Relasi antara sparepart dan 
+penggantian_sparepart juga satu ke banyak, karena satu jenis sparepart dapat digunakan atau 
+diganti pada beberapa kendaraan. 
+Entitas klasifikasi digunakan untuk menyimpan data hasil proses klasifikasi kondisi 
+kendaraan menggunakan algoritma Naïve Bayes dan Decision Tree. Entitas ini memiliki atribut 
+id_klasifikasi, id_kendaraan, umur, jarak_tempuh, frekuensi_servis, umur_sparepart, 
+
+--- PAGE 32 ---
+kategori_umur, kategori_jarak, kategori_servis, kondisi_sparepart, hasil_naive_bayes, 
+hasil_decision_tree, dan tanggal_klasifikasi. Penambahan atribut umur_sparepart dan 
+kondisi_sparepart bertujuan agar proses klasifikasi tidak hanya mempertimbangkan umur 
+kendaraan, jarak tempuh, dan frekuensi servis, tetapi juga memperhatikan kondisi serta umur 
+sparepart yang dapat memengaruhi kebutuhan pemeliharaan kendaraan. 
+Entitas laporan digunakan untuk menyimpan data laporan kendaraan operasional. Atribut 
+pada entitas ini terdiri dari id_laporan, id_kendaraan, jenis_laporan, tanggal, dan keterangan. 
+Entitas l aporan berelasi dengan kendaraan karena laporan dibuat berdasarkan data kendaraan, 
+peminjaman, pemeliharaan, penggantian sparepart, dan hasil klasifikasi. 
+Dengan adanya rancangan ERD ini, sistem informasi pengelolaan kendaraan operasional 
+dapat mengelola d ata secara lebih terstruktur, mulai dari data pengguna, data kendaraan, 
+peminjaman, pemeliharaan, sparepart, penggantian sparepart, hasil klasifikasi, hingga laporan. 
+ERD ini juga mendukung integrasi hasil algoritma Naïve Bayes dan Decision Tree ke dalam 
+sistem sebagai dasar pendukung pengambilan keputusan pemeliharaan kendaraan operasional, 
+dengan mempertimbangkan faktor kondisi kendaraan dan kondisi sparepart. 
+ 
+3.2.16  Skenario Pengujian 
+Skenario pengujian merupakan tahapan yang dilakukan untuk memastikan bahwa sistem 
+informasi pengelolaan kendaraan operasional berbasis web yang dibangun telah berjalan sesuai 
+dengan kebutuhan dan tujuan penelitian. Pengujian dilakukan untuk mengetahui apakah setiap 
+fungsi sistem dapat bekerja dengan baik serta menghasilkan keluar an yang sesuai dengan yang 
+diharapkan. 
+Pada penelitian ini, metode pengujian yang digunakan adalah Black Box Testing, yaitu 
+metode pengujian yang berfokus pada pengujian fungsi sistem tanpa melihat kode program di 
+dalamnya. Pengujian dilakukan dengan cara memberikan input pada sistem dan mengamati 
+output yang dihasilkan. 
+a. Skenario Pengujian Login 
+ 
+ 
+
+--- PAGE 33 ---
+ 
+                                    Tabel 3. 5 Skenario Pengujian Login 
+No 
+Fitur 
+yang 
+Diuji 
+Skenario 
+Pengujian Input Output yang 
+Diharapkan 
+1 Login 
+Username 
+dan 
+password 
+benar 
+Username & 
+password valid 
+Sistem 
+menampilkan 
+dashboard 
+2 Login 
+Username 
+atau 
+password 
+salah 
+Username/password 
+tidak valid 
+Sistem 
+menampilkan 
+pesan error 
+b. Skenario Pengujian Pengelolaan Data Kendaraan 
+                                    Tabel 3. 6 Skenario Pengujian Pengelolaan Data Kendaraan 
+No Fitur yang 
+Diuji 
+Skenario 
+Pengujian Input 
+Output 
+yang 
+Diharapkan 
+1 Tambah 
+kendaraan 
+Menambahkan 
+data 
+kendaraan 
+baru 
+Data 
+kendaraan 
+lengkap 
+Data 
+tersimpan 
+di database 
+2 Ubah 
+kendaraan 
+Mengubah 
+data 
+kendaraan 
+Data 
+kendaraan 
+diperbarui 
+Data 
+kendaraan 
+berubah 
+3 Hapus 
+kendaraan 
+Menghapus 
+data 
+kendaraan 
+Pilih data 
+kendaraan 
+Data 
+kendaraan 
+terhapus 
+
+--- PAGE 34 ---
+4 Lihat 
+kendaraan 
+Menampilkan 
+data 
+kendaraan 
+- 
+Data 
+kendaraan 
+ditampilkan 
+c. Skenario Pengujian Peminjaman Kendaraan 
+ 
+                                 Tabel 3. 7 Skenario Pengujian Peminjaman Kendaraan 
+No Fitur yang 
+Diuji 
+Skenario 
+Pengujian Input 
+Output 
+yang 
+Diharapkan 
+1 Peminjaman 
+Mengajukan 
+peminjaman 
+kendaraan 
+Data 
+peminjaman 
+Status 
+peminjaman 
+tersimpan 
+2 Persetujuan Menyetujui 
+peminjaman 
+Persetujuan 
+admin 
+Status 
+berubah 
+menjadi 
+disetujui 
+3 Penolakan Menolak 
+peminjaman 
+Penolakan 
+admin 
+Status 
+berubah 
+menjadi 
+ditolak 
+d. Skenario Pengujian Pemeliharaan Kendaraan 
+                                      Tabel 3. 8 Skenario Pemeliharaan Kendaraan 
+No Fitur yang 
+Diuji 
+Skenario 
+Pengujian Input 
+Output 
+yang 
+Diharapkan 
+1 
+Tambah 
+pemelihara
+an 
+Menambah
+kan data 
+pemelihara
+an 
+Data 
+pemeliharaa
+n 
+Data 
+tersimpan 
+di database 
+
+--- PAGE 35 ---
+2 Lihat 
+riwayat 
+Menampilk
+an riwayat 
+pemelihara
+an 
+- 
+Riwayat 
+pemelihara
+an tampil 
+ 
+b. Skenario Pengujian Klasifikasi Kondisi Pemeliharaan Kendaraan 
+No Fitur yang 
+Diuji 
+Skenario 
+Pengujian Input Output yang 
+Diharapkan 
+1 
+Klasifikasi 
+Naïve 
+Bayes 
+Melakukan 
+klasifikasi 
+kondisi 
+pemeliharaan 
+kendaraan 
+menggunaka
+n algoritma 
+Naïve Bayes 
+Data historis 
+kendaraan 
+Sistem 
+menampilkan 
+hasil 
+klasifikasi 
+kondisi 
+pemeliharaan 
+2 
+Klasifikasi 
+Decision 
+Tree 
+Melakukan 
+klasifikasi 
+kondisi 
+pemeliharaan 
+kendaraan 
+menggunaka
+n algoritma 
+Decision Tree 
+Data historis 
+kendaraan 
+Sistem 
+menampilkan 
+hasil 
+klasifikasi 
+kondisi 
+pemeliharaan 
+3 
+Perbandi
+ngan 
+Algoritm
+a 
+Membanding
+kan hasil 
+klasifikasi 
+Naïve Bayes 
+dan Decision 
+Tree 
+Data uji 
+Sistem 
+menampilkan 
+hasil 
+perbandingan 
+akurasi 
+ 
+ 
+ 
